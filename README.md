@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<p align="center">
+  <a href="https://r-mounik-kumar.vercel.app/">
+    <img src="https://image.thum.io/get/width/1200/crop/600/https://r-mounik-kumar.vercel.app/" alt="R. Mounik Kumar - Portfolio Preview" width="100%" />
+  </a>
+</p>
+
+<h1 align="center">R. Mounik Kumar — Portfolio</h1>
+
+<p align="center">
+  Personal portfolio built with <strong>Next.js</strong>, <strong>Tailwind CSS</strong>, <strong>Spline 3D</strong>, and <strong>Framer Motion</strong>.
+</p>
+
+<p align="center">
+  <a href="https://r-mounik-kumar.vercel.app/">Live Site</a> ·
+  <a href="https://github.com/rmounikkumar/ecommerce-store">ShopEasy</a> ·
+  <a href="https://github.com/rmounikkumar/Eduteck-website">EduAssistant AI</a>
+</p>
+
+---
+
+## Sections
+
+- **Hero** — Interactive 3D robot scene with scroll-driven parallax
+- **About** — Bio, animated profile photo, learning tags
+- **Resume** — Card layout with PDF preview modal
+- **Projects** — ShopEasy & EduAssistant AI with live demos
+- **Experiments** — Linux/WSL command reference
+- **Skills** — 17 technology cards
+- **Currently Learning** — Active learning areas
+- **Journey** — Scroll-linked timeline
+- **Certificates** — Coursera certificates with PDF previews
+- **Contact** — GitHub, LinkedIn, Email
+
+## Tech Stack
+
+- Next.js 16 · TypeScript · Tailwind CSS
+- Spline 3D · Framer Motion
+- Vercel (hosting)
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+git clone https://github.com/rmounikkumar/portfolio-website.git
+cd portfolio-website
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Deploy
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Live at [r-mounik-kumar.vercel.app](https://r-mounik-kumar.vercel.app/) — deployed on Vercel.
