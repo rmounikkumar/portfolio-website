@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Righteous";
+  src: url("/fonts/Righteous-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --background: #050505;
+  --foreground: #f5f5f5;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: "Righteous", var(--font-inter);
+  --font-heading: "Righteous", var(--font-space);
+  --font-mono: var(--font-mono);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+  -webkit-overflow-scrolling: touch;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: "Righteous", var(--font-inter), Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  overscroll-behavior: none;
+}
+
+p, span, li, a {
+  font-weight: 500;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.card {
+  position: relative;
+  background: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 16px;
+  backdrop-filter: blur(20px);
+  overflow: hidden;
+  transition: border-color 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, border-color;
+}
+
+.card:hover {
+  border-color: rgba(250, 204, 21, 0.1);
+  transform: translateY(-2px);
+}
+
+.card-border {
+  position: relative;
+  overflow: visible;
+}
+
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 15px rgba(250, 204, 21, 0.05), 0 0 30px rgba(250, 204, 21, 0.02); }
+  50% { box-shadow: 0 0 25px rgba(250, 204, 21, 0.12), 0 0 50px rgba(250, 204, 21, 0.05); }
+}
+
+.card-glow {
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+.card-glow:hover {
+  box-shadow: 0 0 30px rgba(250, 204, 21, 0.15), 0 0 60px rgba(250, 204, 21, 0.06) !important;
+}
+
+.glow-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(250,204,21,0.3), transparent);
+}
+
+::selection {
+  background: rgba(250, 204, 21, 0.2);
+  color: #fff;
+}
+
+a[href*="spline.design"] {
+  display: none !important;
+}
+
+[class*="watermark"], [class*="Watermark"], [id*="watermark"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
