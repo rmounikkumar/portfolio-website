@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState, type ReactNode } from "react"
 import { motion, useInView } from "framer-motion";
 import dynamic from "next/dynamic";
 import { useSplineManager } from "./SplineManager";
+import { useIsMobile } from "./useIsMobile";
 
 const Spline = dynamic(() => import("@splinetool/react-spline"), { ssr: false });
 
@@ -21,6 +22,7 @@ export default function SplineSection({ children, className = "", id }: Props) {
   const { activeIds, register } = useSplineManager();
   const isActive = activeIds.has(id);
   const [hasLoaded, setHasLoaded] = useState(false);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     if (isActive) setHasLoaded(true);
@@ -28,7 +30,7 @@ export default function SplineSection({ children, className = "", id }: Props) {
 
   useEffect(() => {
     const el = ref.current;
-    if (!el || hasLoaded) return;
+    if (!el || hasLoaded || isMobile) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -41,7 +43,7 @@ export default function SplineSection({ children, className = "", id }: Props) {
 
     observer.observe(el);
     return () => observer.disconnect();
-  }, [id, register, hasLoaded]);
+  }, [id, register, hasLoaded, isMobile]);
 
   const onLoad = useCallback((splineApp: any) => {
     try {
@@ -51,7 +53,7 @@ export default function SplineSection({ children, className = "", id }: Props) {
 
   return (
     <div ref={ref} className={`relative ${className}`}>
-      {hasLoaded && (
+      {hasLoaded && !isMobile && (
         <div className="absolute inset-0 z-0">
           <Spline scene={SCENE} className="w-full h-full" onLoad={onLoad} />
         </div>
@@ -60,11 +62,10 @@ export default function SplineSection({ children, className = "", id }: Props) {
       <div className="absolute inset-0 z-[1] bg-[#050505]/50" />
 
       <motion.div
-        initial={{ opacity: 0, y: 50, scale: 0.97 }}
-        animate={isInView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 50, scale: 0.97 }}
-        transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+        initial={{ opacity: 0, y: isMobile ? 20 : 50, scale: 0.98 }}
+        animate={isInView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: isMobile ? 20 : 50, scale: 0.98 }}
+        transition={{ duration: isMobile ? 0.5 : 1, ease: [0.16, 1, 0.3, 1] }}
         className="relative z-[2]"
-        style={{ willChange: "transform, opacity" }}
       >
         {children}
       </motion.div>

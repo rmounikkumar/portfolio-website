@@ -68,6 +68,27 @@ p, span, li, a {
   will-change: transform, border-color;
 }
 
+@media (max-width: 767px) {
+  .card {
+    backdrop-filter: none;
+    will-change: auto;
+    transition: border-color 0.3s ease;
+  }
+  .card:hover {
+    transform: none;
+  }
+  .card-glow {
+    animation: none;
+  }
+  .animate-pulse,
+  .animate-ping {
+    animation: none;
+  }
+  * {
+    will-change: auto !important;
+  }
+}
+
 .card:hover {
   border-color: rgba(250, 204, 21, 0.1);
   transform: translateY(-2px);

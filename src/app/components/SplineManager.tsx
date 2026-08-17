@@ -1,6 +1,7 @@
 "use client";
 
 import { createContext, useContext, useState, useCallback, useEffect, useMemo, type ReactNode } from "react";
+import { useIsMobile } from "./useIsMobile";
 
 interface SplineCtx {
   activeIds: Set<string>;
@@ -15,10 +16,13 @@ export function useSplineManager() {
 
 export function SplineManager({ children }: { children: ReactNode }) {
   const [activeIds, setActiveIds] = useState<Set<string>>(new Set());
+  const isMobile = useIsMobile();
 
   useEffect(() => {
-    fetch("https://prod.spline.design/Z2vh92TWwbhel09T/scene.splinecode").catch(() => {});
-  }, []);
+    if (!isMobile) {
+      fetch("https://prod.spline.design/Z2vh92TWwbhel09T/scene.splinecode").catch(() => {});
+    }
+  }, [isMobile]);
 
   const register = useCallback((id: string) => {
     setActiveIds((prev) => {

@@ -12,6 +12,7 @@ import NavBar from "./components/NavBar";
 import ResumeModal from "./components/ResumeModal";
 import CertificateModal from "./components/CertificateModal";
 import JourneyTimeline from "./components/JourneyTimeline";
+import { useIsMobile } from "./components/useIsMobile";
 
 const experiments = [
   { icon: "🐧", title: "WSL Setup & Install", desc: "Getting Linux running inside Windows — the first real step.", commands: [{ tag: "MUST", cmd: "wsl --install", note: "Install WSL + Ubuntu" }, { tag: "MUST", cmd: "wsl -l -v", note: "List installed distros" }, { tag: "NEW", cmd: "wsl --install -d Ubuntu-24.04 --location D:\\WSL", note: "Install to D: drive" }, { tag: "MUST", cmd: "wsl --shutdown", note: "Stop all WSL" }] },
@@ -54,6 +55,7 @@ const skills = [
 ];
 
 export default function Home() {
+  const isMobile = useIsMobile();
   const onLoad = useCallback((splineApp: any) => {
     try { splineApp?.setWatermark?.(null); } catch {}
     try { splineApp?._renderer?.pipeline?.setWatermark?.(null); } catch {}
@@ -92,11 +94,15 @@ export default function Home() {
       <CertificateModal open={certOpen} cert={activeCert} onClose={() => { setCertOpen(false); setActiveCert(null); }} />
 
       {/* ─── Hero ─── */}
-      <div ref={heroRef} className="h-[150vh] relative">
+      <div ref={heroRef} className={isMobile ? "h-[120vh] relative" : "h-[150vh] relative"}>
         <div className="sticky top-0 h-screen w-full bg-[#050505] relative overflow-hidden">
-          <div style={{ position: "absolute", inset: 0, zIndex: 0, pointerEvents: "auto" }}>
-            <HeroSpline scene="https://prod.spline.design/3Yn0YhhKQACCHTEu/scene.splinecode" className="w-full h-full" onLoad={onLoad} />
-          </div>
+          {isMobile ? (
+            <div className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_center,_rgba(250,204,21,0.03)_0%,_#050505_70%)]" />
+          ) : (
+            <div style={{ position: "absolute", inset: 0, zIndex: 0, pointerEvents: "auto" }}>
+              <HeroSpline scene="https://prod.spline.design/3Yn0YhhKQACCHTEu/scene.splinecode" className="w-full h-full" onLoad={onLoad} />
+            </div>
+          )}
           <motion.div style={{ opacity: heroOverlayOpacity }} className="absolute inset-0 z-[1] bg-[#050505] pointer-events-none" />
           <motion.div style={{ opacity: heroOpacity }} className="pointer-events-none relative z-10 flex flex-col justify-between h-full px-8 py-10 md:px-16 lg:px-24">
             <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="flex items-center justify-between">
@@ -104,7 +110,7 @@ export default function Home() {
               <p className="text-white/85 text-xs tracking-[0.3em] font-[family-name:var(--font-mono)]">R. MOUNIK KUMAR</p>
             </motion.div>
 
-            <motion.div style={{ opacity: heroWidgetOpacity, y: heroWidgetY }} className="absolute left-8 md:left-16 top-24 pointer-events-auto">
+            <motion.div style={{ opacity: heroWidgetOpacity, y: heroWidgetY }} className="absolute left-8 md:left-16 top-24 pointer-events-auto hidden md:block">
               <div className="bg-white/[0.02] backdrop-blur-lg border border-white/5 rounded-2xl p-5 w-56 space-y-4">
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
@@ -134,7 +140,7 @@ export default function Home() {
               </div>
             </motion.div>
 
-            <motion.div style={{ opacity: heroWidgetOpacity, y: heroWidgetY }} className="absolute right-8 md:right-16 top-24 pointer-events-auto">
+            <motion.div style={{ opacity: heroWidgetOpacity, y: heroWidgetY }} className="absolute right-8 md:right-16 top-24 pointer-events-auto hidden md:block">
               <div className="bg-white/[0.02] backdrop-blur-lg border border-white/5 rounded-2xl p-5 w-52 space-y-4">
                 <div className="flex items-center gap-2">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-3.5 h-3.5 text-white/50">
@@ -160,7 +166,7 @@ export default function Home() {
               </div>
             </motion.div>
             <motion.div style={{ opacity: heroBtnOpacity, y: heroBtnY }} className="flex flex-col items-center justify-center text-center flex-1">
-              <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.3 }} className="text-white text-4xl md:text-6xl lg:text-7xl font-[family-name:var(--font-heading)] font-light tracking-tight leading-[1.1]">
+              <motion.h1 initial={{ opacity: 0, y: isMobile ? 15 : 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: isMobile ? 0.5 : 1, delay: 0.3 }} className="text-white text-3xl md:text-6xl lg:text-7xl font-[family-name:var(--font-heading)] font-light tracking-tight leading-[1.1]">
                 Hi, I&apos;m <span className="font-medium">Mounik.</span>
               </motion.h1>
               <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.5 }} className="mt-6 text-white/80 text-lg md:text-xl font-light max-w-md leading-relaxed">

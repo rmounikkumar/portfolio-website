@@ -31,10 +31,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrains.variable} h-full antialiased`}
     >
-      <head>
-        <link rel="preload" href="https://prod.spline.design/3Yn0YhhKQACCHTEu/scene.splinecode" as="fetch" crossOrigin="anonymous" />
-        <link rel="preload" href="https://prod.spline.design/Z2vh92TWwbhel09T/scene.splinecode" as="fetch" crossOrigin="anonymous" />
-      </head>
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );
