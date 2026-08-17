@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://r-mounik-kumar.vercel.app/">
-    <img src="https://image.thum.io/get/width/1200/crop/600/https://r-mounik-kumar.vercel.app/" alt="R. Mounik Kumar - Portfolio Preview" width="100%" />
+    <img src="https://api.microlink.io/?url=https://r-mounik-kumar.vercel.app/&meta=false&embed=screenshot.url" alt="R. Mounik Kumar - Portfolio Preview" width="100%" />
   </a>
 </p>
 
