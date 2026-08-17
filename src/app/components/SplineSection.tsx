@@ -59,11 +59,11 @@ export default function SplineSection({ children, className = "", id }: Props) {
         </div>
       )}
 
-      <div className="absolute inset-0 z-[1] bg-[#050505]/50" />
+      {!isMobile && <div className="absolute inset-0 z-[1] bg-[#050505]/50" />}
 
       <motion.div
-        initial={{ opacity: 0, y: isMobile ? 20 : 50, scale: 0.98 }}
-        animate={isInView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: isMobile ? 20 : 50, scale: 0.98 }}
+        initial={isMobile ? { opacity: 1, y: 0 } : { opacity: 0, y: 50, scale: 0.98 }}
+        animate={isInView ? { opacity: 1, y: 0, scale: 1 } : isMobile ? { opacity: 1, y: 0 } : { opacity: 0, y: 50, scale: 0.98 }}
         transition={{ duration: isMobile ? 0.5 : 1, ease: [0.16, 1, 0.3, 1] }}
         className="relative z-[2]"
       >
