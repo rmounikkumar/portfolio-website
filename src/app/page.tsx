@@ -78,12 +78,12 @@ export default function Home() {
   const [activeCert, setActiveCert] = useState<{ title: string; file: string; issuer: string } | null>(null);
 
   const certificates = [
-    { title: "Google IT Automation with Python", issuer: "Coursera", file: "/cert1.pdf", credential: "BAZX6ER904W4" },
-    { title: "Google IT Support", issuer: "Coursera", file: "/cert2.pdf", credential: "MJG0D26Y5ZGL" },
-    { title: "Linux Command Line", issuer: "Coursera", file: "/cert3.pdf", credential: "Certificate" },
-    { title: "Google Cybersecurity", issuer: "Coursera", file: "/cert4.pdf", credential: "O4QRC513LL0S" },
-    { title: "Google UX Design", issuer: "Coursera", file: "/cert5.pdf", credential: "4NMZC4YGXLCR" },
-    { title: "Meta Front-End Developer", issuer: "Coursera", file: "/cert6.pdf", credential: "EKFX0Q9II4SD" },
+    { title: "Google IT Automation with Python", issuer: "Coursera", file: "/cert1.pdf", credential: "BAZX6ER904W4", preview: "/cert-previews/cert1.jpg" },
+    { title: "Google IT Support", issuer: "Coursera", file: "/cert2.pdf", credential: "MJG0D26Y5ZGL", preview: "/cert-previews/cert2.jpg" },
+    { title: "Linux Command Line", issuer: "Coursera", file: "/cert3.pdf", credential: "Certificate", preview: "/cert-previews/cert3.jpg" },
+    { title: "Google Cybersecurity", issuer: "Coursera", file: "/cert4.pdf", credential: "O4QRC513LL0S", preview: "/cert-previews/cert4.jpg" },
+    { title: "Google UX Design", issuer: "Coursera", file: "/cert5.pdf", credential: "4NMZC4YGXLCR", preview: "/cert-previews/cert5.jpg" },
+    { title: "Meta Front-End Developer", issuer: "Coursera", file: "/cert6.pdf", credential: "EKFX0Q9II4SD", preview: "/cert-previews/cert6.jpg" },
   ];
 
   return (
@@ -381,6 +381,102 @@ export default function Home() {
                 </div>
               </div>
             </div>
+
+            {/* SMS Security Gateway */}
+            <div className="card p-8 md:p-12 mb-10 group">
+              <div className="flex items-center gap-4 mb-6">
+                <span className="text-white/35 text-[10px] tracking-[0.3em] uppercase font-[family-name:var(--font-mono)]">03</span>
+                <div className="glow-line flex-1" />
+              </div>
+              <div className="grid md:grid-cols-[1fr_1.2fr] gap-10">
+                <div>
+                  <h3 className="text-white text-2xl md:text-3xl font-[family-name:var(--font-heading)] font-medium mb-2">SMS Security Gateway</h3>
+                  <p className="text-white/45 text-xs font-[family-name:var(--font-mono)] mb-6">AI-based SMS threat detection &amp; monitoring</p>
+                  <p className="text-white/70 text-sm leading-relaxed mb-8">A defensive cybersecurity platform that uses a BERT-Tiny ML model to spot malicious SMS, combines ML predictions with URL and keyword signals into a 0–100 risk score, quarantines high-risk messages, and surfaces everything in a SOC-style dashboard.</p>
+                  <div className="space-y-5">
+                    {[{ label: "What I built", text: "BERT-Tiny SMS classifier, multi-signal risk engine with explainable scoring, 4-level severity system, SQLite event logging, quarantine evidence files, REST API, and a SOC-style monitoring dashboard." }, { label: "The problem", text: "Spam classifiers give one label. I wanted a real security workflow: score, triage, quarantine, and audit — with the reasons behind every decision." }, { label: "What went wrong", text: "Getting a small ML model to run quickly and reliably on Render&apos;s free tier, with 30–60s cold starts and model-loading time." }, { label: "What I learned", text: "A security product is about explainability and triage, not just a spam/ham flag. ML alone misclassifies, so combining signals matters." }].map((item) => (<div key={item.label}><p className="text-white/40 text-[10px] tracking-[0.3em] uppercase font-[family-name:var(--font-mono)] mb-1.5">{item.label}</p><p className="text-white/70 text-sm leading-relaxed">{item.text}</p></div>))}
+                  </div>
+                </div>
+                <div className="flex flex-col justify-between">
+                  <div className="flex-1">
+                    <p className="text-white/40 text-[10px] tracking-[0.3em] uppercase font-[family-name:var(--font-mono)] mb-3">Technologies</p>
+                    <div className="flex flex-wrap gap-2">
+                      {["Python", "Flask", "BERT-Tiny", "PyTorch", "SQLite", "Hugging Face", "REST API"].map((t) => (<span key={t} className="text-white/55 text-xs border border-white/8 rounded-full px-3.5 py-1.5 bg-white/[0.02]">{t}</span>))}
+                    </div>
+                  </div>
+                  <div className="flex gap-3 mt-8">
+                    <a href="https://sms-security-gateway.onrender.com" target="_blank" rel="noopener noreferrer" className="group/btn relative flex items-center gap-2 border border-[rgba(250,204,21,0.2)] rounded-full px-6 py-2.5 text-[rgba(250,204,21,0.8)] text-xs font-[family-name:var(--font-mono)] tracking-wider transition-all duration-500 bg-[rgba(250,204,21,0.05)] hover:bg-[rgba(250,204,21,0.1)] hover:border-[rgba(250,204,21,0.4)] hover:text-[rgba(250,204,21,1)] hover:shadow-[0_0_25px_rgba(250,204,21,0.12),0_0_50px_rgba(250,204,21,0.04)]">Live Demo <span className="transition-transform duration-500 group-hover/btn:translate-x-1">→</span></a>
+                    <a href="https://github.com/rmounikkumar/sms-security-gateway" target="_blank" rel="noopener noreferrer" className="group/btn flex items-center gap-2 border border-white/15 rounded-full px-6 py-2.5 text-white/85 text-xs font-[family-name:var(--font-mono)] tracking-wider transition-all duration-500 hover:border-white/30 hover:text-white/80 hover:bg-white/[0.03]">GitHub <span className="transition-transform duration-500 group-hover/btn:translate-x-1">→</span></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* WaveBeat */}
+            <div className="card p-8 md:p-12 mb-10 group">
+              <div className="flex items-center gap-4 mb-6">
+                <span className="text-white/35 text-[10px] tracking-[0.3em] uppercase font-[family-name:var(--font-mono)]">04</span>
+                <div className="glow-line flex-1" />
+              </div>
+              <div className="grid md:grid-cols-[1fr_1.2fr] gap-10">
+                <div>
+                  <h3 className="text-white text-2xl md:text-3xl font-[family-name:var(--font-heading)] font-medium mb-2">WaveBeat</h3>
+                  <p className="text-white/45 text-xs font-[family-name:var(--font-mono)] mb-6">Offline-first Android music player</p>
+                  <p className="text-white/70 text-sm leading-relaxed mb-8">A lightweight, offline-first Android music player built with Kotlin and Media3 (ExoPlayer). Beautiful dark UI with haptics, an equalizer, playlists, favorites, sleep timer, and a fully custom player overlay.</p>
+                  <div className="space-y-5">
+                    {[{ label: "What I built", text: "Custom player overlay with shuffle/repeat/seek, mini-player, library with live search, playlists, favorites, equalizer with presets & bass boost, sleep timer, lyrics panel, and haptic feedback." }, { label: "The problem", text: "Most music apps need internet or push services. I wanted a fast, offline player that feels native on-device." }, { label: "What went wrong", text: "Getting Media3 sessions and audio focus to behave across interruptions, background playback, and auto-next/resume." }, { label: "What I learned", text: "Android media isn&apos;t just playing a file — audio focus, media sessions, and notification controls are what make it feel native." }].map((item) => (<div key={item.label}><p className="text-white/40 text-[10px] tracking-[0.3em] uppercase font-[family-name:var(--font-mono)] mb-1.5">{item.label}</p><p className="text-white/70 text-sm leading-relaxed">{item.text}</p></div>))}
+                  </div>
+                </div>
+                <div className="flex flex-col justify-between">
+                  <div className="rounded-2xl overflow-hidden border border-white/8 mb-6 relative" style={{ aspectRatio: '9/19' }}>
+                    <Image src="https://raw.githubusercontent.com/rmounikkumar/wavebeat/main/docs/screenshots/player_overlay.png" alt="WaveBeat player overlay preview" fill sizes="(max-width: 768px) 100vw, 28vw" className="object-cover" unoptimized />
+                  </div>
+                  <div>
+                    <p className="text-white/40 text-[10px] tracking-[0.3em] uppercase font-[family-name:var(--font-mono)] mb-3">Technologies</p>
+                    <div className="flex flex-wrap gap-2">
+                      {["Kotlin", "AndroidX", "Media3 ExoPlayer", "Material"].map((t) => (<span key={t} className="text-white/55 text-xs border border-white/8 rounded-full px-3.5 py-1.5 bg-white/[0.02]">{t}</span>))}
+                    </div>
+                  </div>
+                  <div className="flex gap-3 mt-8">
+                    <a href="https://github.com/rmounikkumar/wavebeat/releases" target="_blank" rel="noopener noreferrer" className="group/btn relative flex items-center gap-2 border border-[rgba(250,204,21,0.2)] rounded-full px-6 py-2.5 text-[rgba(250,204,21,0.8)] text-xs font-[family-name:var(--font-mono)] tracking-wider transition-all duration-500 bg-[rgba(250,204,21,0.05)] hover:bg-[rgba(250,204,21,0.1)] hover:border-[rgba(250,204,21,0.4)] hover:text-[rgba(250,204,21,1)] hover:shadow-[0_0_25px_rgba(250,204,21,0.12),0_0_50px_rgba(250,204,21,0.04)]">Get APK <span className="transition-transform duration-500 group-hover/btn:translate-x-1">→</span></a>
+                    <a href="https://github.com/rmounikkumar/wavebeat" target="_blank" rel="noopener noreferrer" className="group/btn flex items-center gap-2 border border-white/15 rounded-full px-6 py-2.5 text-white/85 text-xs font-[family-name:var(--font-mono)] tracking-wider transition-all duration-500 hover:border-white/30 hover:text-white/80 hover:bg-white/[0.03]">GitHub <span className="transition-transform duration-500 group-hover/btn:translate-x-1">→</span></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Pocket Puzzle */}
+            <div className="card p-8 md:p-12 group">
+              <div className="flex items-center gap-4 mb-6">
+                <span className="text-white/35 text-[10px] tracking-[0.3em] uppercase font-[family-name:var(--font-mono)]">05</span>
+                <div className="glow-line flex-1" />
+              </div>
+              <div className="grid md:grid-cols-[1fr_1.2fr] gap-10">
+                <div>
+                  <h3 className="text-white text-2xl md:text-3xl font-[family-name:var(--font-heading)] font-medium mb-2">Pocket Puzzle</h3>
+                  <p className="text-white/45 text-xs font-[family-name:var(--font-mono)] mb-6">Arcade puzzle game — PWA</p>
+                  <p className="text-white/70 text-sm leading-relaxed mb-8">A fast, installable browser arcade puzzle game built with TypeScript and Vite. Ships as a progressive web app and is deployed straight to GitHub Pages via CI.</p>
+                  <div className="space-y-5">
+                    {[{ label: "What I built", text: "A responsive arcade puzzle game in TypeScript with Vite, offline-capable PWA installability, and automated GitHub Actions deployment to GitHub Pages." }, { label: "The problem", text: "Wanted a small, fun game you could run anywhere and even install on a phone — no backend, no app store." }, { label: "What went wrong", text: "Nailing responsive touch controls and keeping the bundle lean so it loads instantly as a PWA." }, { label: "What I learned", text: "A polished little game is a great way to sharpen TypeScript, state handling, and CI/CD basics." }].map((item) => (<div key={item.label}><p className="text-white/40 text-[10px] tracking-[0.3em] uppercase font-[family-name:var(--font-mono)] mb-1.5">{item.label}</p><p className="text-white/70 text-sm leading-relaxed">{item.text}</p></div>))}
+                  </div>
+                </div>
+                <div className="flex flex-col justify-between">
+                  <div className="rounded-2xl overflow-hidden border border-white/8 mb-6 relative" style={{ aspectRatio: '16/10' }}>
+                    <Image src="https://raw.githubusercontent.com/rmounikkumar/pocketpuzzle/main/public/og-image.png" alt="Pocket Puzzle preview" fill sizes="(max-width: 768px) 100vw, 55vw" className="object-cover" unoptimized />
+                  </div>
+                  <div>
+                    <p className="text-white/40 text-[10px] tracking-[0.3em] uppercase font-[family-name:var(--font-mono)] mb-3">Technologies</p>
+                    <div className="flex flex-wrap gap-2">
+                      {["TypeScript", "Vite", "PWA", "GitHub Actions"].map((t) => (<span key={t} className="text-white/55 text-xs border border-white/8 rounded-full px-3.5 py-1.5 bg-white/[0.02]">{t}</span>))}
+                    </div>
+                  </div>
+                  <div className="flex gap-3 mt-8">
+                    <a href="https://rmounikkumar.github.io/pocketpuzzle" target="_blank" rel="noopener noreferrer" className="group/btn relative flex items-center gap-2 border border-[rgba(250,204,21,0.2)] rounded-full px-6 py-2.5 text-[rgba(250,204,21,0.8)] text-xs font-[family-name:var(--font-mono)] tracking-wider transition-all duration-500 bg-[rgba(250,204,21,0.05)] hover:bg-[rgba(250,204,21,0.1)] hover:border-[rgba(250,204,21,0.4)] hover:text-[rgba(250,204,21,1)] hover:shadow-[0_0_25px_rgba(250,204,21,0.12),0_0_50px_rgba(250,204,21,0.04)]">Live Demo <span className="transition-transform duration-500 group-hover/btn:translate-x-1">→</span></a>
+                    <a href="https://github.com/rmounikkumar/pocketpuzzle" target="_blank" rel="noopener noreferrer" className="group/btn flex items-center gap-2 border border-white/15 rounded-full px-6 py-2.5 text-white/85 text-xs font-[family-name:var(--font-mono)] tracking-wider transition-all duration-500 hover:border-white/30 hover:text-white/80 hover:bg-white/[0.03]">GitHub <span className="transition-transform duration-500 group-hover/btn:translate-x-1">→</span></a>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
       </SplineSection>
@@ -496,16 +592,8 @@ export default function Home() {
                     <Image src="/cert-frame.avif" alt="" fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" className="object-contain rounded-2xl" />
                   </div>
                   <div className="relative z-10 p-5">
-                    <div className="relative w-full h-44 rounded-lg overflow-hidden border border-white/5 mb-4 bg-white">
-                      <iframe src={cert.file} className="hidden md:block w-full h-full border-0 pointer-events-none scale-[0.45] origin-top-left" style={{ width: "222%", height: "222%" }} />
-                      <div className="md:hidden absolute inset-0 flex items-center justify-center bg-gradient-to-br from-white/10 to-white/5">
-                        <div className="text-center">
-                          <svg viewBox="0 0 24 24" fill="none" stroke="rgba(250,204,21,0.5)" strokeWidth="1.5" className="w-10 h-10 mx-auto mb-2">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
-                          </svg>
-                          <span className="text-white/40 text-[10px] font-[family-name:var(--font-mono)]">Tap to view</span>
-                        </div>
-                      </div>
+                    <div className="relative w-full h-44 rounded-lg overflow-hidden border border-white/5 mb-4 bg-white flex items-center justify-center">
+                      <Image src={cert.preview} alt={cert.title} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" className="object-contain" />
                       <div className="absolute top-2 right-2 z-10">
                         <Image src="/coursera-logo.png" alt="Coursera" width={28} height={28} className="rounded-md" />
                       </div>
