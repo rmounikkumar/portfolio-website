@@ -431,8 +431,10 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="flex flex-col justify-between">
-                  <div className="rounded-2xl overflow-hidden border border-white/8 mb-6 relative" style={{ aspectRatio: '9/19' }}>
-                    <Image src="https://raw.githubusercontent.com/rmounikkumar/wavebeat/main/docs/screenshots/player_overlay.png" alt="WaveBeat player overlay preview" fill sizes="(max-width: 768px) 100vw, 28vw" className="object-cover" unoptimized />
+                  <div className="rounded-2xl overflow-hidden border border-white/8 mb-6 relative bg-black/40" style={{ aspectRatio: '9/19' }}>
+                    <div className="absolute inset-0 p-4">
+                      <Image src="https://raw.githubusercontent.com/rmounikkumar/wavebeat/main/docs/screenshots/player_overlay.png" alt="WaveBeat player overlay preview" fill sizes="(max-width: 768px) 100vw, 28vw" className="object-contain" unoptimized />
+                    </div>
                   </div>
                   <div>
                     <p className="text-white/40 text-[10px] tracking-[0.3em] uppercase font-[family-name:var(--font-mono)] mb-3">Technologies</p>
