@@ -398,7 +398,10 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="flex flex-col justify-between">
-                  <div className="flex-1">
+                  <div className="rounded-2xl overflow-hidden border border-white/8 mb-6 relative bg-black/40" style={{ aspectRatio: '16/10' }}>
+                    <Image src="/sms-security-preview.png" alt="SMS Security Gateway dashboard preview" fill sizes="(max-width: 768px) 100vw, 55vw" className="object-contain" unoptimized />
+                  </div>
+                  <div>
                     <p className="text-white/40 text-[10px] tracking-[0.3em] uppercase font-[family-name:var(--font-mono)] mb-3">Technologies</p>
                     <div className="flex flex-wrap gap-2">
                       {["Python", "Flask", "BERT-Tiny", "PyTorch", "SQLite", "Hugging Face", "REST API"].map((t) => (<span key={t} className="text-white/55 text-xs border border-white/8 rounded-full px-3.5 py-1.5 bg-white/[0.02]">{t}</span>))}
@@ -461,8 +464,10 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="flex flex-col justify-between">
-                  <div className="rounded-2xl overflow-hidden border border-white/8 mb-6 relative bg-black/40" style={{ aspectRatio: '4/5' }}>
-                    <Image src="/pocketpuzzle-cover.png" alt="Pocket Puzzle cover" fill sizes="(max-width: 768px) 100vw, 55vw" className="object-contain" unoptimized />
+                  <div className="rounded-2xl overflow-hidden border border-white/8 mb-6 relative bg-black/40" style={{ aspectRatio: '16/9' }}>
+                    <div className="absolute inset-0 p-6">
+                      <Image src="/pocketpuzzle-cover.png" alt="Pocket Puzzle cover" fill sizes="(max-width: 768px) 100vw, 55vw" className="object-contain" unoptimized />
+                    </div>
                   </div>
                   <div>
                     <p className="text-white/40 text-[10px] tracking-[0.3em] uppercase font-[family-name:var(--font-mono)] mb-3">Technologies</p>
