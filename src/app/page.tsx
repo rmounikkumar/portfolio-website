@@ -432,7 +432,7 @@ export default function Home() {
                 </div>
                 <div className="flex flex-col justify-between">
                   <div className="rounded-2xl overflow-hidden border border-white/8 mb-6 relative bg-black/40" style={{ aspectRatio: '9/19' }}>
-                    <div className="absolute inset-0 p-4">
+                    <div className="absolute inset-0 p-8">
                       <Image src="https://raw.githubusercontent.com/rmounikkumar/wavebeat/main/docs/screenshots/player_overlay.png" alt="WaveBeat player overlay preview" fill sizes="(max-width: 768px) 100vw, 28vw" className="object-contain" unoptimized />
                     </div>
                   </div>
