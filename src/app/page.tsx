@@ -461,8 +461,8 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="flex flex-col justify-between">
-                  <div className="rounded-2xl overflow-hidden border border-white/8 mb-6 relative" style={{ aspectRatio: '16/10' }}>
-                    <Image src="https://raw.githubusercontent.com/rmounikkumar/pocketpuzzle/main/public/og-image.png" alt="Pocket Puzzle preview" fill sizes="(max-width: 768px) 100vw, 55vw" className="object-cover" unoptimized />
+                  <div className="rounded-2xl overflow-hidden border border-white/8 mb-6 relative bg-black/40" style={{ aspectRatio: '4/5' }}>
+                    <Image src="/pocketpuzzle-cover.png" alt="Pocket Puzzle cover" fill sizes="(max-width: 768px) 100vw, 55vw" className="object-contain" unoptimized />
                   </div>
                   <div>
                     <p className="text-white/40 text-[10px] tracking-[0.3em] uppercase font-[family-name:var(--font-mono)] mb-3">Technologies</p>
