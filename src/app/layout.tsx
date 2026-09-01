@@ -19,7 +19,15 @@ const jetbrains = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: "R. Mounik Kumar",
-  description: "Portfolio",
+  description:
+    "Portfolio of R. Mounik Kumar — full-stack developer building web apps with Next.js, React, Tailwind CSS, and more.",
+  openGraph: {
+    title: "R. Mounik Kumar",
+    description:
+      "Portfolio of R. Mounik Kumar — full-stack developer building web apps with Next.js, React, Tailwind CSS, and more.",
+    type: "website",
+    url: "https://r-mounik-kumar.vercel.app/",
+  },
   icons: {
     icon: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='none'/></svg>",
   },
