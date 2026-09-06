@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import dynamic from "next/dynamic";
@@ -54,6 +54,96 @@ const skills = [
   { name: "Research", icon: "🔬", type: "Process" },
 ];
 
+const caseStudies: Record<string, { title: string; sections: { heading: string; body: string }[] }> = {
+  shopeasy: {
+    title: "ShopEasy — building an online store that actually ships",
+    sections: [
+      { heading: "The goal", body: "Most e-commerce templates are broken, abandoned, or paywalled. I wanted a store that works out of the box — storefront, admin dashboard, real inventory, and payments, all in one project. 108 demo products across 9 categories." },
+      { heading: "The approach", body: "Built a storefront with search & filters, product galleries, shopping cart, and checkout, plus a full admin panel. Implemented email-OTP authentication with httpOnly cookies, rotating session tokens, and rate limiting, and wired up Razorpay for payments with Brevo transactional email." },
+      { heading: "The challenges", body: "Inventory race conditions under concurrent requests, session token bugs, and coaxing Razorpay test mode into behaving like production were the hardest parts. Each one surfaced only after real usage, not before." },
+      { heading: "What I learned", body: "Real auth isn't just 'hash and store passwords.' Security comes from httpOnly cookies, rotating tokens, and rate limiting. Shipping something production-ready means debugging things that only break at scale." },
+    ],
+  },
+  eduasistant: {
+    title: "EduAssistant AI — three roles, one platform",
+    sections: [
+      { heading: "The goal", body: "A full-stack learning platform where students, teachers, and parents each get a tailored experience — course management, quizzes, progress tracking, and an AI assistant, all under one roof." },
+      { heading: "The approach", body: "Designed three responsive dashboards with JWT authentication and role-based access control (RBAC). Added course enrollment with video progress tracking, auto-graded quizzes, analytics dashboards via Chart.js, Google OAuth sign-in, and an AI chat assistant for learning support." },
+      { heading: "The challenges", body: "Managing three user roles with different permissions got messy fast, and Google OAuth integration had its own surprises. Both forced me to rethink how permissions and external auth flow through a codebase." },
+      { heading: "What I learned", body: "Good data modeling from the start saves hours later. 'Just add Google login' is never as simple as it sounds — third-party auth brings its own contract you have to obey." },
+    ],
+  },
+  sms: {
+    title: "SMS Security Gateway — scoring threats, not just tagging spam",
+    sections: [
+      { heading: "The goal", body: "Spam classifiers return a single label. I wanted a real security workflow: score, triage, quarantine, and audit — with the reasons behind every decision, presented in a SOC-style dashboard." },
+      { heading: "The approach", body: "Built a BERT-Tiny SMS classifier and combined ML predictions with URL and keyword signals into an explainable 0–100 risk score. Added a 4-level severity system, SQLite event logging, quarantine evidence files, and a REST API for the dashboard." },
+      { heading: "The challenges", body: "Getting a small ML model to run quickly and reliably on Render's free tier — with 30–60s cold starts and model-loading time — pushed me to optimize loading and inference for a constrained environment." },
+      { heading: "What I learned", body: "A security product is about explainability and triage, not just a spam/ham flag. ML alone misclassifies, so combining signals — URL, keywords, model confidence — makes the verdict trustworthy." },
+    ],
+  },
+  wavebeat: {
+    title: "WaveBeat — an Android player that feels native",
+    sections: [
+      { heading: "The goal", body: "Most music apps need internet or push services. I wanted a fast, offline-first Android player that feels native on-device — no cloud, no accounts, no lag." },
+      { heading: "The approach", body: "Built with Kotlin and Media3 (ExoPlayer). Custom player overlay with shuffle, repeat, and seek controls; mini-player, live library search, playlists, favorites, an equalizer with presets and bass boost, sleep timer, lyrics panel, and haptic feedback." },
+      { heading: "The challenges", body: "Getting Media3 sessions and audio focus to behave across interruptions, background playback, and auto-next/resume was the toughest part — the framework's behavior only reveals itself during real phone usage." },
+      { heading: "What I learned", body: "Android media isn't just playing a file. Audio focus, media sessions, and notification controls are exactly what make a player feel native instead of a wrapper around a URL." },
+    ],
+  },
+  pocketpuzzle: {
+    title: "Pocket Puzzle — a small game with a real deployment pipeline",
+    sections: [
+      { heading: "The goal", body: "A small, fun arcade puzzle game you can run anywhere — even install on a phone. No backend, no app store, just a URL." },
+      { heading: "The approach", body: "Built a responsive arcade puzzle game in TypeScript with Vite, made it offline-capable as a progressive web app, and set up GitHub Actions to deploy automatically to GitHub Pages on every push." },
+      { heading: "The challenges", body: "Nailing responsive touch controls and keeping the bundle lean enough to load instantly as a PWA took real iteration — every dependency had to justify its weight." },
+      { heading: "What I learned", body: "A polished little game is a great way to sharpen TypeScript, state handling, and CI/CD basics. Shipping to GitHub Pages via Actions makes 'deploy' a non-event." },
+    ],
+  },
+};
+
+function CaseStudy({ id, study, open, onToggle }: { id: string; study: { title: string; sections: { heading: string; body: string }[] }; open: boolean; onToggle: (id: string) => void }) {
+  return (
+    <div className="mt-10">
+      <button
+        onClick={() => onToggle(id)}
+        aria-expanded={open}
+        className="group/cs w-full flex items-center justify-center gap-3 border border-dashed border-white/15 rounded-full px-6 py-3 text-white/70 text-xs tracking-[0.25em] uppercase font-[family-name:var(--font-mono)] transition-all duration-500 hover:border-[rgba(250,204,21,0.4)] hover:text-[rgba(250,204,21,0.9)] hover:bg-[rgba(250,204,21,0.03)]"
+      >
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-4 h-4">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+        </svg>
+        {open ? "Hide Case Study" : "Read Case Study"}
+        <span className={`transition-transform duration-500 ${open ? "rotate-90" : "group-hover/cs:translate-y-0.5"}`}>↓</span>
+      </button>
+      <AnimatePresence initial={false}>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+            className="overflow-hidden"
+          >
+            <div className="mt-8 pt-8 border-t border-white/8">
+              <p className="text-white/40 text-[10px] tracking-[0.3em] uppercase font-[family-name:var(--font-mono)] mb-2">Case Study</p>
+              <h4 className="text-white text-xl md:text-2xl font-[family-name:var(--font-heading)] font-medium mb-6">{study.title}</h4>
+              <div className="grid md:grid-cols-2 gap-6">
+                {study.sections.map((s) => (
+                  <div key={s.heading} className="bg-white/[0.02] border border-white/8 rounded-2xl p-5">
+                    <p className="text-[rgba(250,204,21,0.6)] text-[10px] tracking-[0.3em] uppercase font-[family-name:var(--font-mono)] mb-2">{s.heading}</p>
+                    <p className="text-white/70 text-sm leading-relaxed">{s.body}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
+
 export default function Home() {
   const isMobile = useIsMobile();
   const onLoad = useCallback((splineApp: any) => {
@@ -76,6 +166,8 @@ export default function Home() {
   const [resumeOpen, setResumeOpen] = useState(false);
   const [certOpen, setCertOpen] = useState(false);
   const [activeCert, setActiveCert] = useState<{ title: string; file: string; issuer: string } | null>(null);
+  const [openCaseStudy, setOpenCaseStudy] = useState<string | null>(null);
+  const toggleCaseStudy = (id: string) => setOpenCaseStudy((cur) => (cur === id ? null : id));
 
   const certificates = [
     { title: "Google IT Automation with Python", issuer: "Coursera", file: "/cert1.pdf", credential: "BAZX6ER904W4", preview: "/cert-previews/cert1.jpg" },
@@ -347,6 +439,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
+              <CaseStudy id="shopeasy" study={caseStudies.shopeasy} open={openCaseStudy === "shopeasy"} onToggle={toggleCaseStudy} />
             </div>
 
             {/* EduAssistant */}
@@ -380,6 +473,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
+              <CaseStudy id="eduasistant" study={caseStudies.eduasistant} open={openCaseStudy === "eduasistant"} onToggle={toggleCaseStudy} />
             </div>
 
             {/* SMS Security Gateway */}
@@ -413,6 +507,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
+              <CaseStudy id="sms" study={caseStudies.sms} open={openCaseStudy === "sms"} onToggle={toggleCaseStudy} />
             </div>
 
             {/* WaveBeat */}
@@ -448,6 +543,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
+              <CaseStudy id="wavebeat" study={caseStudies.wavebeat} open={openCaseStudy === "wavebeat"} onToggle={toggleCaseStudy} />
             </div>
 
             {/* Pocket Puzzle */}
@@ -483,6 +579,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
+              <CaseStudy id="pocketpuzzle" study={caseStudies.pocketpuzzle} open={openCaseStudy === "pocketpuzzle"} onToggle={toggleCaseStudy} />
             </div>
           </div>
         </section>
