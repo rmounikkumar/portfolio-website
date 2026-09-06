@@ -108,13 +108,17 @@ function CaseStudy({ id, study, open, onToggle }: { id: string; study: { title: 
       <button
         onClick={() => onToggle(id)}
         aria-expanded={open}
-        className="group/cs w-full flex items-center justify-center gap-3 border border-dashed border-white/15 rounded-full px-6 py-3 text-white/70 text-xs tracking-[0.25em] uppercase font-[family-name:var(--font-mono)] transition-all duration-500 hover:border-[rgba(250,204,21,0.4)] hover:text-[rgba(250,204,21,0.9)] hover:bg-[rgba(250,204,21,0.03)]"
+        className={`group/cs w-full flex items-center justify-center gap-3 rounded-full px-8 py-3.5 text-xs tracking-[0.25em] uppercase font-[family-name:var(--font-mono)] transition-all duration-500 ${
+          open
+            ? "border border-[rgba(250,204,21,0.4)] text-[rgba(250,204,21,1)] bg-[rgba(250,204,21,0.1)] shadow-[0_0_30px_rgba(250,204,21,0.06)]"
+            : "border border-[rgba(250,204,21,0.5)] text-[rgba(250,204,21,0.95)] bg-[rgba(250,204,21,0.12)] hover:bg-[rgba(250,204,21,0.2)] hover:shadow-[0_0_35px_rgba(250,204,21,0.15)] hover:text-[rgba(250,204,21,1)]"
+        }`}
       >
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-4 h-4">
           <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
         </svg>
         {open ? "Hide Case Study" : "Read Case Study"}
-        <span className={`transition-transform duration-500 ${open ? "rotate-90" : "group-hover/cs:translate-y-0.5"}`}>↓</span>
+        <span className={`hidden sm:inline-block transition-transform duration-500 ${open ? "rotate-90" : "group-hover/cs:translate-y-0.5"}`}>↓</span>
       </button>
       <AnimatePresence initial={false}>
         {open && (
