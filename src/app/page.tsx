@@ -110,8 +110,8 @@ function CaseStudy({ id, study, open, onToggle }: { id: string; study: { title: 
         aria-expanded={open}
         className={`group/cs w-full flex items-center justify-center gap-3 rounded-full px-8 py-3.5 text-xs tracking-[0.25em] uppercase font-[family-name:var(--font-mono)] transition-all duration-500 ${
           open
-            ? "border border-[rgba(250,204,21,0.4)] text-[rgba(250,204,21,1)] bg-[rgba(250,204,21,0.1)] shadow-[0_0_30px_rgba(250,204,21,0.06)]"
-            : "border border-[rgba(250,204,21,0.5)] text-[rgba(250,204,21,0.95)] bg-[rgba(250,204,21,0.12)] hover:bg-[rgba(250,204,21,0.2)] hover:shadow-[0_0_35px_rgba(250,204,21,0.15)] hover:text-[rgba(250,204,21,1)]"
+            ? "border border-white text-black bg-white shadow-[0_0_30px_rgba(255,255,255,0.2)]"
+            : "border border-white text-black bg-white hover:bg-white/90 hover:shadow-[0_0_35px_rgba(255,255,255,0.25)]"
         }`}
       >
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-4 h-4">
