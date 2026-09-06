@@ -117,6 +117,37 @@ p, span, li, a {
   background: linear-gradient(90deg, transparent, rgba(250,204,21,0.3), transparent);
 }
 
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  transition:
+    transform 120ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    filter 120ms ease,
+    box-shadow 300ms ease,
+    color 400ms ease,
+    background-color 400ms ease,
+    border-color 400ms ease;
+}
+
+a:active,
+button:active {
+  transform: scale(0.96);
+  filter: brightness(0.9);
+}
+
+@keyframes press-down {
+  to {
+    transform: scale(0.97);
+    filter: brightness(0.92);
+  }
+}
+
+button.card:active,
+a.card:active {
+  animation: press-down 120ms cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
 ::selection {
   background: rgba(250, 204, 21, 0.2);
   color: #fff;
