@@ -121,18 +121,16 @@ export function SoundToggle() {
       onMouseEnter={() => play("hover")}
       aria-pressed={enabled}
       aria-label={enabled ? "Disable sound effects" : "Enable sound effects"}
-      className={`group fixed bottom-5 right-5 z-[90] flex items-center gap-2.5 rounded-full px-4 py-2.5 text-[10px] tracking-[0.2em] uppercase font-[family-name:var(--font-mono)] border transition-all duration-500 backdrop-blur-xl ${
+      className={`group fixed bottom-5 right-5 z-[90] flex items-center justify-center rounded-full p-3 text-xs tracking-[0.2em] uppercase font-[family-name:var(--font-mono)] border transition-all duration-500 backdrop-blur-xl ${
         enabled
           ? "border-[rgba(250,204,21,0.4)] bg-[rgba(250,204,21,0.1)] text-[rgba(250,204,21,0.9)] shadow-[0_0_20px_rgba(250,204,21,0.1)]"
-          : "border-white/15 bg-[#050505]/80 text-white/50 hover:border-white/30 hover:text-white/80"
+          : "border-white/15 bg-[#050505]/80 text-white/60 hover:border-white/30 hover:text-white/85"
       }`}
     >
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-4 h-4">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-5 h-5">
         <path strokeLinecap="round" strokeLinejoin="round" d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75z" />
         {!enabled && <path strokeLinecap="round" strokeLinejoin="round" d="M17 9l6 6M23 9l-6 6" />}
       </svg>
-      <span className={enabled ? "text-[rgba(250,204,21,0.9)]" : ""}>{enabled ? "Sound On" : "Sound Off"}</span>
-      <span className={`w-1.5 h-1.5 rounded-full transition-colors duration-500 ${enabled ? "bg-[rgba(250,204,21,0.8)] animate-pulse" : "bg-white/20"}`} />
     </button>
   );
 }
