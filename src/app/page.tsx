@@ -13,6 +13,7 @@ import ResumeModal from "./components/ResumeModal";
 import CertificateModal from "./components/CertificateModal";
 import JourneyTimeline from "./components/JourneyTimeline";
 import { useIsMobile } from "./components/useIsMobile";
+import { SoundProvider, SoundToggle, useSound } from "./components/SoundManager";
 
 const experiments = [
   { icon: "🐧", title: "WSL Setup & Install", desc: "Getting Linux running inside Windows — the first real step.", commands: [{ tag: "MUST", cmd: "wsl --install", note: "Install WSL + Ubuntu" }, { tag: "MUST", cmd: "wsl -l -v", note: "List installed distros" }, { tag: "NEW", cmd: "wsl --install -d Ubuntu-24.04 --location D:\\WSL", note: "Install to D: drive" }, { tag: "MUST", cmd: "wsl --shutdown", note: "Stop all WSL" }] },
@@ -184,7 +185,8 @@ export default function Home() {
 
   return (
     <SplineManager>
-    <div className="bg-[#050505]">
+      <SoundProvider>
+      <div className="bg-[#050505]">
       <NavBar />
       <ResumeModal open={resumeOpen} onClose={() => setResumeOpen(false)} />
       <CertificateModal open={certOpen} cert={activeCert} onClose={() => { setCertOpen(false); setActiveCert(null); }} />
@@ -750,6 +752,8 @@ export default function Home() {
         </section>
       </SplineSection>
     </div>
+      <SoundToggle />
+      </SoundProvider>
     </SplineManager>
   );
 }
