@@ -25,8 +25,7 @@
 - **Resume** &#8212; Card layout with PDF preview modal
 - **Projects** &#8212; ShopEasy &amp; EduAssistant AI with live demos
 - **Experiments** &#8212; Linux/WSL command reference
-- **Skills** &#8212; 17 technology cards
-- **Currently Learning** &#8212; Active learning areas
+- **Skills** &#8212; 17 technology cards, with a compact *Currently Learning* strip
 - **Journey** &#8212; Scroll-linked timeline
 - **Certificates** &#8212; Coursera certificates with PDF previews
 - **Contact** &#8212; GitHub, LinkedIn, Email

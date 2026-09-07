@@ -40,7 +40,7 @@ export default function JourneyTimeline() {
             <span className={`inline-block text-xs font-[family-name:var(--font-mono)] tracking-[0.2em] mb-3 ${item.current ? "text-[rgba(250,204,21,0.8)]" : "text-white/45"}`}>{item.year}</span>
             <h3 className="text-white/90 text-lg font-[family-name:var(--font-heading)] font-medium mb-2">{item.title}</h3>
             <p className="text-white/55 text-sm leading-relaxed">{item.desc}</p>
-            {item.tags && <div className={`flex flex-wrap gap-2 mt-3 ${i % 2 === 0 ? "md:justify-end" : ""}`}>{item.tags.map((tag) => (<span key={tag} className="text-white/40 text-[10px] border border-white/8 rounded-full px-3 py-1 bg-white/[0.02] font-[family-name:var(--font-mono)]">{tag}</span>))}</div>}
+            {item.tags && <div className={`flex flex-wrap gap-2 mt-3 ${i % 2 === 0 ? "md:justify-end" : ""}`}>{item.tags.map((tag) => (<span key={tag} className="text-white/60 text-[10px] border border-white/10 rounded-full px-3 py-1 bg-white/[0.02] font-[family-name:var(--font-mono)]">{tag}</span>))}</div>}
           </div>
         </div>
       ))}

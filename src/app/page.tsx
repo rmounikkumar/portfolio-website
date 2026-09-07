@@ -131,7 +131,7 @@ function CaseStudy({ id, study, open, onToggle }: { id: string; study: { title: 
             className="overflow-hidden"
           >
             <div className="mt-8 pt-8 border-t border-white/8">
-              <p className="text-white/40 text-[10px] tracking-[0.3em] uppercase font-[family-name:var(--font-mono)] mb-2">Case Study</p>
+              <p className="text-white/55 text-[10px] tracking-[0.3em] uppercase font-[family-name:var(--font-mono)] mb-2">Case Study</p>
               <h4 className="text-white text-xl md:text-2xl font-[family-name:var(--font-heading)] font-medium mb-6">{study.title}</h4>
               <div className="grid md:grid-cols-2 gap-6">
                 {study.sections.map((s) => (
@@ -221,11 +221,11 @@ export default function Home() {
                     <span className="text-white/90 text-xs font-[family-name:var(--font-mono)]">2</span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-white/45 text-[10px] font-[family-name:var(--font-mono)]">Certificates</span>
+                    <span className="text-white/65 text-[10px] font-[family-name:var(--font-mono)]">Certificates</span>
                     <span className="text-white/90 text-xs font-[family-name:var(--font-mono)]">6</span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-white/45 text-[10px] font-[family-name:var(--font-mono)]">Stack</span>
+                    <span className="text-white/65 text-[10px] font-[family-name:var(--font-mono)]">Stack</span>
                     <span className="text-white/90 text-xs font-[family-name:var(--font-mono)]">Full-Stack</span>
                   </div>
                 </div>
@@ -249,15 +249,15 @@ export default function Home() {
                 <div className="h-px bg-white/6" />
                 <div className="space-y-3">
                   <div>
-                    <span className="text-white/40 text-[9px] font-[family-name:var(--font-mono)] block">LOCATION</span>
+                    <span className="text-white/60 text-[9px] font-[family-name:var(--font-mono)] block">LOCATION</span>
                     <span className="text-white/85 text-xs font-[family-name:var(--font-mono)]">India</span>
                   </div>
                   <div>
-                    <span className="text-white/40 text-[9px] font-[family-name:var(--font-mono)] block">EDUCATION</span>
+                    <span className="text-white/60 text-[9px] font-[family-name:var(--font-mono)] block">EDUCATION</span>
                     <span className="text-white/85 text-xs font-[family-name:var(--font-mono)]">B.Tech CSE — 3rd Year</span>
                   </div>
                   <div>
-                    <span className="text-white/40 text-[9px] font-[family-name:var(--font-mono)] block">FOCUS</span>
+                    <span className="text-white/60 text-[9px] font-[family-name:var(--font-mono)] block">FOCUS</span>
                     <span className="text-white/85 text-xs font-[family-name:var(--font-mono)]">Web Dev &amp; AI</span>
                   </div>
                 </div>
@@ -305,22 +305,22 @@ export default function Home() {
                     </div>
                   </div>
                   <div>
-                    <p className="text-white/40 text-[10px] tracking-[0.3em] uppercase font-[family-name:var(--font-mono)]">3rd-Year CSE Student</p>
+                    <p className="text-white/55 text-[10px] tracking-[0.3em] uppercase font-[family-name:var(--font-mono)]">3rd-Year CSE Student</p>
                     <p className="text-white/80 text-sm mt-1">B.Tech Computer Science &amp; Engineering</p>
                   </div>
                 </div>
                 <div className="card p-6">
-                  <p className="text-white/40 text-[10px] tracking-[0.3em] uppercase font-[family-name:var(--font-mono)] mb-3">Currently Learning</p>
+                  <p className="text-white/55 text-[10px] tracking-[0.3em] uppercase font-[family-name:var(--font-mono)] mb-3">Currently Learning</p>
                   <div className="flex flex-wrap gap-2">
                     {["Web Development", "DSA", "Core CS", "GATE Prep"].map((t) => (<span key={t} className="text-white/60 text-xs border border-white/8 rounded-full px-3.5 py-1.5 bg-white/[0.02]">{t}</span>))}
                   </div>
                 </div>
                 <div className="card p-6">
-                  <p className="text-white/40 text-[10px] tracking-[0.3em] uppercase font-[family-name:var(--font-mono)] mb-2">What I&apos;m Building</p>
+                  <p className="text-white/55 text-[10px] tracking-[0.3em] uppercase font-[family-name:var(--font-mono)] mb-2">What I&apos;m Building</p>
                   <p className="text-white/70 text-sm leading-relaxed">Practical projects, hackathon prototypes, and anything that teaches me something new.</p>
                 </div>
                 <div className="card p-6">
-                  <p className="text-white/40 text-[10px] tracking-[0.3em] uppercase font-[family-name:var(--font-mono)] mb-2">Where I&apos;m Heading</p>
+                  <p className="text-white/55 text-[10px] tracking-[0.3em] uppercase font-[family-name:var(--font-mono)] mb-2">Where I&apos;m Heading</p>
                   <p className="text-white/70 text-sm leading-relaxed">🎯 Become a strong software professional, gain meaningful industry experience, and keep learning every day.</p>
                 </div>
               </div>
@@ -340,21 +340,21 @@ export default function Home() {
             <div className="grid md:grid-cols-2 gap-10">
               <div className="space-y-6">
                 <div className="card p-6">
-                  <p className="text-white/40 text-[10px] tracking-[0.3em] uppercase font-[family-name:var(--font-mono)] mb-2">About</p>
+                  <p className="text-white/55 text-[10px] tracking-[0.3em] uppercase font-[family-name:var(--font-mono)] mb-2">About</p>
                   <p className="text-white/70 text-sm leading-relaxed">3rd-year B.Tech CSE student with hands-on experience in full-stack development, AI tools, and system administration. Proven ability to build and ship production-ready applications.</p>
                 </div>
                 <div className="card p-6">
-                  <p className="text-white/40 text-[10px] tracking-[0.3em] uppercase font-[family-name:var(--font-mono)] mb-2">Education</p>
+                  <p className="text-white/55 text-[10px] tracking-[0.3em] uppercase font-[family-name:var(--font-mono)] mb-2">Education</p>
                   <p className="text-white/85 text-sm">B.Tech Computer Science &amp; Engineering</p>
-                  <p className="text-white/50 text-xs mt-1">3rd Year — Currently Pursuing</p>
+                  <p className="text-white/65 text-xs mt-1">3rd Year — Currently Pursuing</p>
                 </div>
                 <div className="card p-6">
-                  <p className="text-white/40 text-[10px] tracking-[0.3em] uppercase font-[family-name:var(--font-mono)] mb-2">Experience</p>
+                  <p className="text-white/55 text-[10px] tracking-[0.3em] uppercase font-[family-name:var(--font-mono)] mb-2">Experience</p>
                   <p className="text-white/85 text-sm">Self-taught full-stack developer</p>
-                  <p className="text-white/50 text-xs mt-1">Hackathon participant · Open-source contributor</p>
+                  <p className="text-white/65 text-xs mt-1">Hackathon participant · Open-source contributor</p>
                 </div>
                 <div className="card p-6">
-                  <p className="text-white/40 text-[10px] tracking-[0.3em] uppercase font-[family-name:var(--font-mono)] mb-3">Key Highlights</p>
+                  <p className="text-white/55 text-[10px] tracking-[0.3em] uppercase font-[family-name:var(--font-mono)] mb-3">Key Highlights</p>
                   <ul className="space-y-2">
                     {["Full-stack web development", "Hackathon participant", "Linux & WSL proficiency", "AI-assisted development", "Strong DSA & problem solving"].map((item) => (
                       <li key={item} className="flex items-center gap-2 text-white/85 text-sm">
@@ -373,7 +373,7 @@ export default function Home() {
                 </div>
                 <div>
                   <p className="text-white/80 text-lg font-[family-name:var(--font-heading)] font-medium mb-2">R. Mounik Kumar</p>
-                  <p className="text-white/50 text-xs font-[family-name:var(--font-mono)]">Last updated: August 2026</p>
+                  <p className="text-white/65 text-xs font-[family-name:var(--font-mono)]">Last updated: August 2026</p>
                 </div>
                 <div className="flex flex-col sm:flex-row gap-3 w-full">
                   <button
@@ -423,18 +423,16 @@ export default function Home() {
               <div className="grid md:grid-cols-[1fr_1.2fr] gap-10">
                 <div>
                   <h3 className="text-white text-2xl md:text-3xl font-[family-name:var(--font-heading)] font-medium mb-2">ShopEasy</h3>
-                  <p className="text-white/45 text-xs font-[family-name:var(--font-mono)] mb-6">Full-stack e-commerce application</p>
-                  <p className="text-white/70 text-sm leading-relaxed mb-8">A complete, ready-to-run online store with a storefront, admin dashboard, real inventory management, and payment integration. 108 demo products across 9 categories.</p>
-                  <div className="space-y-5">
-                    {[{ label: "What I built", text: "Storefront with search & filters, product galleries, shopping cart, checkout, admin panel, email OTP auth, and Razorpay integration." }, { label: "The problem", text: "Most e-commerce templates are broken, abandoned, or paywalled. I wanted something that works out of the box." }, { label: "What went wrong", text: "Inventory race conditions, session token bugs, and getting Razorpay test mode to behave like production." }, { label: "What I learned", text: "Real auth isn't just 'hash and store passwords.' httpOnly cookies, rotating tokens, and rate limiting are what keep things secure." }].map((item) => (<div key={item.label}><p className="text-white/40 text-[10px] tracking-[0.3em] uppercase font-[family-name:var(--font-mono)] mb-1.5">{item.label}</p><p className="text-white/70 text-sm leading-relaxed">{item.text}</p></div>))}
-                  </div>
+                  <p className="text-white/60 text-xs font-[family-name:var(--font-mono)] mb-5">Full-stack e-commerce application</p>
+                  <p className="text-white/70 text-sm leading-relaxed mb-4">A complete, ready-to-run online store with a storefront, admin dashboard, real inventory management, and payment integration. 108 demo products across 9 categories.</p>
+                  <p className="text-white/55 text-sm leading-relaxed">Real auth isn&apos;t just &ldquo;hash and store passwords.&rdquo; httpOnly cookies, rotating tokens, and rate limiting are what keep things secure.</p>
                 </div>
                 <div className="flex flex-col justify-between">
                   <div className="rounded-2xl overflow-hidden border border-white/8 mb-6 relative bg-black/40" style={{ aspectRatio: '16/10' }}>
                     <Image src="/shopeasy-preview.png" alt="ShopEasy preview" fill sizes="(max-width: 768px) 100vw, 55vw" className="object-contain" unoptimized />
                   </div>
                   <div>
-                    <p className="text-white/40 text-[10px] tracking-[0.3em] uppercase font-[family-name:var(--font-mono)] mb-3">Technologies</p>
+                    <p className="text-white/55 text-[10px] tracking-[0.3em] uppercase font-[family-name:var(--font-mono)] mb-3">Technologies</p>
                     <div className="flex flex-wrap gap-2">
                       {["JavaScript", "Vite", "Node.js", "Express", "MongoDB", "Razorpay", "Brevo", "JWT"].map((t) => (<span key={t} className="text-white/55 text-xs border border-white/8 rounded-full px-3.5 py-1.5 bg-white/[0.02]">{t}</span>))}
                     </div>
@@ -457,18 +455,16 @@ export default function Home() {
               <div className="grid md:grid-cols-[1fr_1.2fr] gap-10">
                 <div>
                   <h3 className="text-white text-2xl md:text-3xl font-[family-name:var(--font-heading)] font-medium mb-2">EduAssistant AI</h3>
-                  <p className="text-white/45 text-xs font-[family-name:var(--font-mono)] mb-6">AI-powered educational platform</p>
-                  <p className="text-white/70 text-sm leading-relaxed mb-8">A full-stack learning platform with role-based dashboards for students, teachers, and parents. Course management, quizzes, progress tracking, and an AI assistant.</p>
-                  <div className="space-y-5">
-                    {[{ label: "What I built", text: "Three dashboards, JWT auth with role-based access, course enrollment & video tracking, quizzes with auto-grading, and an AI chat assistant." }, { label: "What went wrong", text: "Managing three user roles with different permissions got messy. Google OAuth integration had its own fun surprises." }, { label: "What I learned", text: "Good data modeling from the start saves hours later. 'Just add Google login' is never as simple as it sounds." }].map((item) => (<div key={item.label}><p className="text-white/40 text-[10px] tracking-[0.3em] uppercase font-[family-name:var(--font-mono)] mb-1.5">{item.label}</p><p className="text-white/70 text-sm leading-relaxed">{item.text}</p></div>))}
-                  </div>
+                  <p className="text-white/60 text-xs font-[family-name:var(--font-mono)] mb-5">AI-powered educational platform</p>
+                  <p className="text-white/70 text-sm leading-relaxed mb-4">A full-stack learning platform with role-based dashboards for students, teachers, and parents. Course management, quizzes, progress tracking, and an AI assistant.</p>
+                  <p className="text-white/55 text-sm leading-relaxed">Good data modeling from the start saves hours later. &ldquo;Just add Google login&rdquo; is never as simple as it sounds.</p>
                 </div>
                 <div className="flex flex-col justify-between">
                   <div className="rounded-2xl overflow-hidden border border-white/8 mb-6 relative" style={{ aspectRatio: '16/10' }}>
                     <Image src="/eduassistant-preview.png" alt="EduAssistant AI preview" fill sizes="(max-width: 768px) 100vw, 55vw" className="object-cover" />
                   </div>
                   <div>
-                    <p className="text-white/40 text-[10px] tracking-[0.3em] uppercase font-[family-name:var(--font-mono)] mb-3">Technologies</p>
+                    <p className="text-white/55 text-[10px] tracking-[0.3em] uppercase font-[family-name:var(--font-mono)] mb-3">Technologies</p>
                     <div className="flex flex-wrap gap-2">
                       {["Node.js", "Express", "MongoDB", "JWT", "Tailwind CSS", "Chart.js", "Google OAuth"].map((t) => (<span key={t} className="text-white/55 text-xs border border-white/8 rounded-full px-3.5 py-1.5 bg-white/[0.02]">{t}</span>))}
                     </div>
@@ -491,18 +487,16 @@ export default function Home() {
               <div className="grid md:grid-cols-[1fr_1.2fr] gap-10">
                 <div>
                   <h3 className="text-white text-2xl md:text-3xl font-[family-name:var(--font-heading)] font-medium mb-2">SMS Security Gateway</h3>
-                  <p className="text-white/45 text-xs font-[family-name:var(--font-mono)] mb-6">AI-based SMS threat detection &amp; monitoring</p>
-                  <p className="text-white/70 text-sm leading-relaxed mb-8">A defensive cybersecurity platform that uses a BERT-Tiny ML model to spot malicious SMS, combines ML predictions with URL and keyword signals into a 0–100 risk score, quarantines high-risk messages, and surfaces everything in a SOC-style dashboard.</p>
-                  <div className="space-y-5">
-                    {[{ label: "What I built", text: "BERT-Tiny SMS classifier, multi-signal risk engine with explainable scoring, 4-level severity system, SQLite event logging, quarantine evidence files, REST API, and a SOC-style monitoring dashboard." }, { label: "The problem", text: "Spam classifiers give one label. I wanted a real security workflow: score, triage, quarantine, and audit — with the reasons behind every decision." }, { label: "What went wrong", text: "Getting a small ML model to run quickly and reliably on Render&apos;s free tier, with 30–60s cold starts and model-loading time." }, { label: "What I learned", text: "A security product is about explainability and triage, not just a spam/ham flag. ML alone misclassifies, so combining signals matters." }].map((item) => (<div key={item.label}><p className="text-white/40 text-[10px] tracking-[0.3em] uppercase font-[family-name:var(--font-mono)] mb-1.5">{item.label}</p><p className="text-white/70 text-sm leading-relaxed">{item.text}</p></div>))}
-                  </div>
+                  <p className="text-white/60 text-xs font-[family-name:var(--font-mono)] mb-5">AI-based SMS threat detection &amp; monitoring</p>
+                  <p className="text-white/70 text-sm leading-relaxed mb-4">A defensive cybersecurity platform that uses a BERT-Tiny ML model to spot malicious SMS, combines ML predictions with URL and keyword signals into a 0–100 risk score, quarantines high-risk messages, and surfaces everything in a SOC-style dashboard.</p>
+                  <p className="text-white/55 text-sm leading-relaxed">A security product is about explainability and triage, not just a spam/ham flag. ML alone misclassifies, so combining signals matters.</p>
                 </div>
                 <div className="flex flex-col justify-between">
                   <div className="rounded-2xl overflow-hidden border border-white/8 mb-6 relative bg-black/40" style={{ aspectRatio: '16/10' }}>
                     <Image src="/sms-security-preview.png" alt="SMS Security Gateway dashboard preview" fill sizes="(max-width: 768px) 100vw, 55vw" className="object-contain" unoptimized />
                   </div>
                   <div>
-                    <p className="text-white/40 text-[10px] tracking-[0.3em] uppercase font-[family-name:var(--font-mono)] mb-3">Technologies</p>
+                    <p className="text-white/55 text-[10px] tracking-[0.3em] uppercase font-[family-name:var(--font-mono)] mb-3">Technologies</p>
                     <div className="flex flex-wrap gap-2">
                       {["Python", "Flask", "BERT-Tiny", "PyTorch", "SQLite", "Hugging Face", "REST API"].map((t) => (<span key={t} className="text-white/55 text-xs border border-white/8 rounded-full px-3.5 py-1.5 bg-white/[0.02]">{t}</span>))}
                     </div>
@@ -525,11 +519,9 @@ export default function Home() {
               <div className="grid md:grid-cols-[1fr_1.2fr] gap-10">
                 <div>
                   <h3 className="text-white text-2xl md:text-3xl font-[family-name:var(--font-heading)] font-medium mb-2">WaveBeat</h3>
-                  <p className="text-white/45 text-xs font-[family-name:var(--font-mono)] mb-6">Offline-first Android music player</p>
-                  <p className="text-white/70 text-sm leading-relaxed mb-8">A lightweight, offline-first Android music player built with Kotlin and Media3 (ExoPlayer). Beautiful dark UI with haptics, an equalizer, playlists, favorites, sleep timer, and a fully custom player overlay.</p>
-                  <div className="space-y-5">
-                    {[{ label: "What I built", text: "Custom player overlay with shuffle/repeat/seek, mini-player, library with live search, playlists, favorites, equalizer with presets & bass boost, sleep timer, lyrics panel, and haptic feedback." }, { label: "The problem", text: "Most music apps need internet or push services. I wanted a fast, offline player that feels native on-device." }, { label: "What went wrong", text: "Getting Media3 sessions and audio focus to behave across interruptions, background playback, and auto-next/resume." }, { label: "What I learned", text: "Android media isn&apos;t just playing a file — audio focus, media sessions, and notification controls are what make it feel native." }].map((item) => (<div key={item.label}><p className="text-white/40 text-[10px] tracking-[0.3em] uppercase font-[family-name:var(--font-mono)] mb-1.5">{item.label}</p><p className="text-white/70 text-sm leading-relaxed">{item.text}</p></div>))}
-                  </div>
+                  <p className="text-white/60 text-xs font-[family-name:var(--font-mono)] mb-5">Offline-first Android music player</p>
+                  <p className="text-white/70 text-sm leading-relaxed mb-4">A lightweight, offline-first Android music player built with Kotlin and Media3 (ExoPlayer). Beautiful dark UI with haptics, an equalizer, playlists, favorites, sleep timer, and a fully custom player overlay.</p>
+                  <p className="text-white/55 text-sm leading-relaxed">Android media isn&apos;t just playing a file — audio focus, media sessions, and notification controls are what make it feel native.</p>
                 </div>
                 <div className="flex flex-col justify-between">
                   <div className="rounded-2xl overflow-hidden border border-white/8 mb-6 relative bg-black/40 mx-auto w-full max-w-[200px]" style={{ aspectRatio: '9/19' }}>
@@ -538,7 +530,7 @@ export default function Home() {
                     </div>
                   </div>
                   <div>
-                    <p className="text-white/40 text-[10px] tracking-[0.3em] uppercase font-[family-name:var(--font-mono)] mb-3">Technologies</p>
+                    <p className="text-white/55 text-[10px] tracking-[0.3em] uppercase font-[family-name:var(--font-mono)] mb-3">Technologies</p>
                     <div className="flex flex-wrap gap-2">
                       {["Kotlin", "AndroidX", "Media3 ExoPlayer", "Material"].map((t) => (<span key={t} className="text-white/55 text-xs border border-white/8 rounded-full px-3.5 py-1.5 bg-white/[0.02]">{t}</span>))}
                     </div>
@@ -561,11 +553,9 @@ export default function Home() {
               <div className="grid md:grid-cols-[1fr_1.2fr] gap-10">
                 <div>
                   <h3 className="text-white text-2xl md:text-3xl font-[family-name:var(--font-heading)] font-medium mb-2">Pocket Puzzle</h3>
-                  <p className="text-white/45 text-xs font-[family-name:var(--font-mono)] mb-6">Arcade puzzle game — PWA</p>
-                  <p className="text-white/70 text-sm leading-relaxed mb-8">A fast, installable browser arcade puzzle game built with TypeScript and Vite. Ships as a progressive web app and is deployed straight to GitHub Pages via CI.</p>
-                  <div className="space-y-5">
-                    {[{ label: "What I built", text: "A responsive arcade puzzle game in TypeScript with Vite, offline-capable PWA installability, and automated GitHub Actions deployment to GitHub Pages." }, { label: "The problem", text: "Wanted a small, fun game you could run anywhere and even install on a phone — no backend, no app store." }, { label: "What went wrong", text: "Nailing responsive touch controls and keeping the bundle lean so it loads instantly as a PWA." }, { label: "What I learned", text: "A polished little game is a great way to sharpen TypeScript, state handling, and CI/CD basics." }].map((item) => (<div key={item.label}><p className="text-white/40 text-[10px] tracking-[0.3em] uppercase font-[family-name:var(--font-mono)] mb-1.5">{item.label}</p><p className="text-white/70 text-sm leading-relaxed">{item.text}</p></div>))}
-                  </div>
+                  <p className="text-white/60 text-xs font-[family-name:var(--font-mono)] mb-5">Arcade puzzle game — PWA</p>
+                  <p className="text-white/70 text-sm leading-relaxed mb-4">A fast, installable browser arcade puzzle game built with TypeScript and Vite. Ships as a progressive web app and is deployed straight to GitHub Pages via CI.</p>
+                  <p className="text-white/55 text-sm leading-relaxed">A polished little game is a great way to sharpen TypeScript, state handling, and CI/CD basics.</p>
                 </div>
                 <div className="flex flex-col justify-between">
                   <div className="rounded-2xl overflow-hidden border border-white/8 mb-6 relative bg-black/40" style={{ aspectRatio: '16/9' }}>
@@ -574,7 +564,7 @@ export default function Home() {
                     </div>
                   </div>
                   <div>
-                    <p className="text-white/40 text-[10px] tracking-[0.3em] uppercase font-[family-name:var(--font-mono)] mb-3">Technologies</p>
+                    <p className="text-white/55 text-[10px] tracking-[0.3em] uppercase font-[family-name:var(--font-mono)] mb-3">Technologies</p>
                     <div className="flex flex-wrap gap-2">
                       {["TypeScript", "Vite", "PWA", "GitHub Actions"].map((t) => (<span key={t} className="text-white/55 text-xs border border-white/8 rounded-full px-3.5 py-1.5 bg-white/[0.02]">{t}</span>))}
                     </div>
@@ -609,7 +599,7 @@ export default function Home() {
                   </div>
                   <p className="text-white/70 text-sm mb-5 leading-relaxed">{exp.desc}</p>
                   <div className="space-y-2">
-                    {exp.commands.map((cmd) => (<div key={cmd.cmd} className="flex items-start gap-2 text-xs"><span className="text-[rgba(250,204,21,0.6)] font-[family-name:var(--font-mono)] shrink-0 mt-px">{cmd.tag}</span><div><code className="text-white/80 font-[family-name:var(--font-mono)] text-[11px]">{cmd.cmd}</code><span className="text-white/45 ml-2 text-[10px]">{cmd.note}</span></div></div>))}
+                    {exp.commands.map((cmd) => (<div key={cmd.cmd} className="flex items-start gap-2 text-xs"><span className="text-[rgba(250,204,21,0.6)] font-[family-name:var(--font-mono)] shrink-0 mt-px">{cmd.tag}</span><div><code className="text-white/80 font-[family-name:var(--font-mono)] text-[11px]">{cmd.cmd}</code><span className="text-white/65 ml-2 text-[10px]">{cmd.note}</span></div></div>))}
                   </div>
                 </div>
               ))}
@@ -631,38 +621,26 @@ export default function Home() {
               <p className="text-[rgba(250,204,21,0.7)] text-xs tracking-[0.4em] uppercase font-[family-name:var(--font-mono)] mb-4">Skills</p>
               <h2 className="text-white text-3xl md:text-5xl font-[family-name:var(--font-heading)] font-light tracking-tight">What I <span className="font-medium">use</span>.</h2>
             </div>
+            <div className="mb-12">
+              <p className="text-[rgba(250,204,21,0.7)] text-xs tracking-[0.4em] uppercase font-[family-name:var(--font-mono)] mb-3">Currently Learning</p>
+              <div className="flex flex-wrap items-center gap-2">
+                {currentlyLearning.map((item) => (
+                  <span key={item.name} className="inline-flex items-center gap-1.5 border border-white/10 rounded-full px-3.5 py-1.5 bg-white/[0.02]">
+                    <span className="text-sm">{item.icon}</span>
+                    <span className="text-white/85 text-sm font-[family-name:var(--font-heading)] font-medium">{item.name}</span>
+                    <span className="text-[rgba(250,204,21,0.55)] text-[10px] font-[family-name:var(--font-mono)] tracking-wider uppercase ml-1">{item.status}</span>
+                  </span>
+                ))}
+              </div>
+            </div>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
               {skills.map((skill) => (
                 <div key={skill.name} className="card px-5 py-5 flex items-center gap-3 group">
                   <span className="text-xl">{skill.icon}</span>
                   <div>
                     <p className="text-white/85 text-sm font-[family-name:var(--font-heading)] font-medium">{skill.name}</p>
-                    <p className="text-white/45 text-[10px] font-[family-name:var(--font-mono)] mt-0.5">{skill.type}</p>
+                    <p className="text-white/55 text-[10px] font-[family-name:var(--font-mono)] mt-0.5">{skill.type}</p>
                   </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      </SplineSection>
-
-      {/* ─── Currently Learning ─── */}
-      <SplineSection id="learning">
-        <section id="learning" className="relative z-20 px-6 pb-28 md:px-16 lg:px-24">
-          <div className="max-w-6xl mx-auto">
-            <div className="mb-16">
-              <p className="text-[rgba(250,204,21,0.7)] text-xs tracking-[0.4em] uppercase font-[family-name:var(--font-mono)] mb-4">Currently Learning</p>
-              <h2 className="text-white text-3xl md:text-5xl font-[family-name:var(--font-heading)] font-light tracking-tight">What&apos;s on my <span className="font-medium">plate right now</span>.</h2>
-            </div>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {currentlyLearning.map((item) => (
-                <div key={item.name} className="card p-6 flex items-start gap-4 group">
-                  <div className="w-10 h-10 rounded-xl bg-white/[0.03] border border-white/8 flex items-center justify-center shrink-0 text-lg group-hover:border-[rgba(250,204,21,0.2)] transition-colors duration-500">{item.icon}</div>
-                  <div className="flex-1">
-                    <p className="text-white/85 text-sm font-[family-name:var(--font-heading)] font-medium mb-1">{item.name}</p>
-                    <p className="text-white/50 text-xs leading-relaxed">{item.desc}</p>
-                  </div>
-                  <span className="text-[rgba(250,204,21,0.4)] text-[10px] font-[family-name:var(--font-mono)] tracking-wider shrink-0 mt-1">{item.status}</span>
                 </div>
               ))}
             </div>
@@ -709,8 +687,8 @@ export default function Home() {
                       </div>
                     </div>
                     <h3 className="text-white/85 text-sm font-[family-name:var(--font-heading)] font-medium mb-1 group-hover:text-white/80 transition-colors duration-500">{cert.title}</h3>
-                    <p className="text-white/45 text-[10px] font-[family-name:var(--font-mono)] mb-2">{cert.issuer}</p>
-                    <div className="flex items-center gap-2 text-white/35 text-[10px] font-[family-name:var(--font-mono)] group-hover:text-[rgba(250,204,21,0.4)] transition-colors duration-500">
+                    <p className="text-white/60 text-[10px] font-[family-name:var(--font-mono)] mb-2">{cert.issuer}</p>
+                    <div className="flex items-center gap-2 text-white/55 text-[10px] font-[family-name:var(--font-mono)] group-hover:text-[rgba(250,204,21,0.6)] transition-colors duration-500">
                       <span>View Certificate</span>
                       <span className="transition-transform duration-500 group-hover:translate-x-1">→</span>
                     </div>
@@ -738,7 +716,7 @@ export default function Home() {
                     <span className="text-white/35 text-lg group-hover:text-[rgba(250,204,21,0.7)] transition-colors duration-500">{link.icon}</span>
                     <span className="text-white/90 text-xl md:text-3xl font-[family-name:var(--font-heading)] font-light tracking-tight group-hover:text-white transition-colors duration-500">{link.label}</span>
                   </div>
-                  <span className="text-white/35 text-sm font-[family-name:var(--font-mono)] group-hover:text-[rgba(250,204,21,0.7)] transition-all duration-500 group-hover:translate-x-1">→</span>
+                  <span className="text-white/60 text-sm font-[family-name:var(--font-mono)] group-hover:text-[rgba(250,204,21,0.7)] transition-all duration-500 group-hover:translate-x-1">→</span>
                   <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(250,204,21,0.4)] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </a>
               ))}
@@ -746,7 +724,7 @@ export default function Home() {
             <div className="mt-20 pt-10 border-t border-white/5 text-center">
               <p className="text-white/60 text-sm font-[family-name:var(--font-heading)] font-light tracking-tight">Designed &amp; built by</p>
               <p className="text-white/90 text-lg font-[family-name:var(--font-heading)] font-medium mt-1">R. Mounik Kumar</p>
-              <p className="text-white/35 text-[10px] font-[family-name:var(--font-mono)] mt-4 tracking-wider">© {new Date().getFullYear()}</p>
+              <p className="text-white/55 text-[10px] font-[family-name:var(--font-mono)] mt-4 tracking-wider">© {new Date().getFullYear()}</p>
             </div>
           </div>
         </section>
