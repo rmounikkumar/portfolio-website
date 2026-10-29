@@ -101,6 +101,15 @@ const caseStudies: Record<string, { title: string; sections: { heading: string; 
       { heading: "What I learned", body: "A polished little game is a great way to sharpen TypeScript, state handling, and CI/CD basics. Shipping to GitHub Pages via Actions makes 'deploy' a non-event." },
     ],
   },
+  keyboardstudio: {
+    title: "Keyboard Studio — driving a keyboard that refuses to take orders",
+    sections: [
+      { heading: "The goal", body: "A CASUE USB keyboard is advertised as RGB, but the lighting lives in firmware: one zone, one colour, and the ScrollLock LED is the only light software can reach. I wanted to turn that single bit into a real lighting studio — 14 effects, a live preview, a speed slider — without touching the laptop's built-in keyboard." },
+      { heading: "The approach", body: "Built the UI in Python with PySide6, then went down through ctypes to the Win32 layer: SetupAPI to enumerate the board's HID collections and keyboard device interfaces, HidD/HidP to read its report descriptors, and DeviceIoControl to drive the indicators. The final path is IOCTL_KEYBOARD_SET_INDICATORS on the CASUE's own GUID_DEVINTERFACE_KEYBOARD handle — the same call Windows makes when you press Scroll Lock." },
+      { heading: "The challenges", body: "The obvious route, HidD_SetOutputReport on the keyboard collection, failed every time with ERROR_INVALID_FUNCTION even though the collection advertises a 2-byte output report. The keyboard-class device that everyone documents (\\Device\\KeyboardClass0) belongs to the laptop's internal keyboard, so writing there lit the wrong board. And the CASUE answers every indicator query with zero, even while its LED is visibly on, so the app has to track ScrollLock itself." },
+      { heading: "What I learned", body: "Per-device handles matter: the keyboard-device interface keeps the write scoped to one keyboard, and NumLock/CapsLock can be preserved with GetKeyState. Most of all, instrument the hardware before guessing — a diagnostics report that prints what each collection and IOCTL actually returned turned a week of speculation into a fix I could see glowing on the desk." },
+    ],
+  },
 };
 
 function CaseStudy({ id, study, open, onToggle }: { id: string; study: { title: string; sections: { heading: string; body: string }[] }; open: boolean; onToggle: (id: string) => void }) {
@@ -545,7 +554,7 @@ export default function Home() {
             </div>
 
             {/* Pocket Puzzle */}
-            <div className="card p-8 md:p-12 group">
+            <div className="card p-8 md:p-12 mb-10 group">
               <div className="flex items-center gap-4 mb-6">
                 <span className="text-white/35 text-[10px] tracking-[0.3em] uppercase font-[family-name:var(--font-mono)]">05</span>
                 <div className="glow-line flex-1" />
@@ -576,6 +585,38 @@ export default function Home() {
                 </div>
               </div>
               <CaseStudy id="pocketpuzzle" study={caseStudies.pocketpuzzle} open={openCaseStudy === "pocketpuzzle"} onToggle={toggleCaseStudy} />
+            </div>
+
+            {/* Keyboard Studio */}
+            <div className="card p-8 md:p-12 group">
+              <div className="flex items-center gap-4 mb-6">
+                <span className="text-white/35 text-[10px] tracking-[0.3em] uppercase font-[family-name:var(--font-mono)]">06</span>
+                <div className="glow-line flex-1" />
+              </div>
+              <div className="grid md:grid-cols-[1fr_1.2fr] gap-10">
+                <div>
+                  <h3 className="text-white text-2xl md:text-3xl font-[family-name:var(--font-heading)] font-medium mb-2">Keyboard Studio</h3>
+                  <p className="text-white/60 text-xs font-[family-name:var(--font-mono)] mb-5">Windows lighting studio for a USB keyboard</p>
+                  <p className="text-white/70 text-sm leading-relaxed mb-4">A Windows app that turns a USB keyboard&apos;s single ScrollLock LED into 14 lighting effects, with a live preview and speed slider. No RGB protocol, no firmware hooks — just the lock light Windows already controls, animated through the keyboard class driver.</p>
+                  <p className="text-white/55 text-sm leading-relaxed">The shortest path into hardware on Windows is usually the one Windows itself already takes.</p>
+                </div>
+                <div className="flex flex-col justify-between">
+                  <div className="rounded-2xl overflow-hidden border border-white/8 mb-6 relative bg-black/40" style={{ aspectRatio: '16/10' }}>
+                    <Image src="/keyboard-studio-preview.png" alt="Keyboard Studio preview" fill sizes="(max-width: 768px) 100vw, 55vw" className="object-contain" unoptimized />
+                  </div>
+                  <div>
+                    <p className="text-white/55 text-[10px] tracking-[0.3em] uppercase font-[family-name:var(--font-mono)] mb-3">Technologies</p>
+                    <div className="flex flex-wrap gap-2">
+                      {["Python", "PySide6", "Qt", "ctypes", "Win32 IOCTL", "PyInstaller"].map((t) => (<span key={t} className="text-white/55 text-xs border border-white/8 rounded-full px-3.5 py-1.5 bg-white/[0.02]">{t}</span>))}
+                    </div>
+                  </div>
+                  <div className="flex gap-3 mt-8">
+                    <a href="https://github.com/rmounikkumar/keyboard-studio-windows/releases/latest" target="_blank" rel="noopener noreferrer" className="group/btn flex items-center justify-center gap-2 rounded-full bg-white px-5 py-2 text-black text-xs font-[family-name:var(--font-mono)] tracking-wider transition-all duration-500 hover:bg-white/90"><Image src="/presentation.png" alt="" width={32} height={32} className="w-8 h-8 shrink-0 rounded-full" /> Get Windows build</a>
+                    <a href="https://github.com/rmounikkumar/keyboard-studio-windows" target="_blank" rel="noopener noreferrer" className="group/btn flex items-center justify-center gap-2 border border-white rounded-full px-6 py-2.5 text-black text-xs font-[family-name:var(--font-mono)] tracking-wider transition-all duration-500 bg-white hover:bg-white/85 hover:border-white/85"><svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" /></svg> GitHub <span className="transition-transform duration-500 group-hover/btn:translate-x-1">→</span></a>
+                  </div>
+                </div>
+              </div>
+              <CaseStudy id="keyboardstudio" study={caseStudies.keyboardstudio} open={openCaseStudy === "keyboardstudio"} onToggle={toggleCaseStudy} />
             </div>
           </div>
         </section>
